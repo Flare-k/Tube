@@ -1,0 +1,8 @@
+{
+    "presets": ["@babel/preset-env"]
+}
+/*
+원하는 node.js와 JS와 관련된 모든 설정을 집어넣는다.
+이 파일은 Babel을 설정하는 곳이다. Babel이 실행되기 전에 이 파일을 찾아보고 
+설정해둔 Preset을 읽고 이해한다. Preset에 따라 변환한다.
+*/
