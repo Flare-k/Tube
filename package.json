@@ -1,18 +1,21 @@
 {
-  "name": "myyoutube",
-  "version": "1.0.0",
-  "description": "make Youtube Website",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "ssh://git@khuhub.khu.ac.kr:12959/2017110267/myYoutube.git"
-  },
-  "author": "Kang Yeon Wook",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+    "name": "myyoutube",
+    "version": "1.0.0",
+    "description": "make Youtube Website",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@khuhub.khu.ac.kr:12959/2017110267/myYoutube.git"
+    },
+    "author": "Kang Yeon Wook",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "scripts": {
+        "start": "node index.js"
+    }
 }
