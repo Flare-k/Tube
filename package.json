@@ -2,9 +2,9 @@
     "name": "myyoutube",
     "version": "1.0.0",
     "description": "make Youtube Website",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
-        "start": "nodemon --exec babel-node index.js --delay 2"
+        "start": "nodemon --exec babel-node init.js --delay 2"
     },
     "repository": {
         "type": "git",
