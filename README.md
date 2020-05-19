@@ -13,7 +13,7 @@
 4. A W S   : EC2
  
 
- ## Pages:
+## Pages:
 - [ ] Home
 - [ ] Join
 - [ ] Login
