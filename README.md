@@ -12,3 +12,15 @@
 3. Database: mongoDB
 4. A W S   : EC2
  
+
+ ## Pages:
+- [ ] Home
+- [ ] Join
+- [ ] Login
+- [x] Search
+- [ ] User Detail
+- [ ] Edit Profile
+- [ ] Change Password
+- [ ] Upload
+- [ ] Video Detail
+- [ ] Edit Video
