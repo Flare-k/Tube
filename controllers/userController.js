@@ -23,8 +23,16 @@ export const getLogin = (req, res) =>
 export const postLogin = (req, res) => {
     res.redirect(routes.home);
 };
-export const logout = (req, res) =>
-    res.render("logout", { pageTitle: "Logout" });
+
+//로그아웃을 클릭하면 LogOut페이지로 가는 것 대신에, 로그아웃을 처리한 후
+// home 페이지로 Redirect로 표현할 것이다.
+//즉, 초반에 만들어둔 logout.pug는 삭제해도 좋다.
+export const logout = (req, res) => {
+    //res.render("logout", { pageTitle: "Logout" });
+    res.redirect(routes.home);
+};
+
+
 export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 export const userDetail = (req, res) =>
     res.render("userDetail", { pageTitle: "User Detail" });
