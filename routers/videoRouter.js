@@ -7,12 +7,12 @@ import {
     editVideo,
     deleteVideo,
 } from "../controllers/videoController";
+import { uploadVideo } from "../middlewares";
 //export const videoRouter = express.Router();  이렇게하면 이 변수만 export하게 된다.
 const videoRouter = express.Router();
 
 videoRouter.get(routes.upload, getUpload);
-videoRouter.post(routes.upload, postUpload);
-
+videoRouter.post(routes.upload, uploadVideo, postUpload);
 
 videoRouter.get(routes.editVideo, editVideo);
 

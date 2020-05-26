@@ -25,13 +25,23 @@ export const search = (req, res) => {
 //upload 또한 upload를 준비하기 위한 get 페이지와 실제 데이터를 보내는 post 페이지가 필요하다.
 export const getUpload = (req, res) =>
     res.render("upload", { pageTitle: "Upload" });
-export const postUpload = (req, res) => {
+export const postUpload = async(req, res) => {
     //const {} 를 통해 body를 받아와 요청하는 정보들을 확인한다.
     //이는 pug와 db.js를 확인해야하는 듯 하다.
     const {
-        body: { file, title, description },
-    } = req;
-    res.redirect(routes.videoDetail(324393));
+        body: { title, description },
+        file: { path },
+    } = req; //file에 path라는 요소가 있다.
+
+    const newVideo = await Video.create({
+        fileUrl: path,
+        title,
+        description,
+        //여기있는 fileUrl, title, description은 videoDB의 속성이다.
+    });
+    console.log(newVideo);
+    res.redirect(routes.videoDetail(newVideo.id)); //id는 DB의 id
+    //id는 mongoDB가 랜덤하게 만들어준다.
 };
 
 export const videoDetail = (req, res) =>
