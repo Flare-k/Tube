@@ -19,7 +19,12 @@ const VideoSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now //현재 날짜를 반환하는 function
-    }
+    },
+    //video와 comment를 연결하는 방법 #1
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId, //그 다음 어느 model에서 온 id인지 알려줘야 한다.
+        ref: "Comment"
+    }]
 });
 // 이제 이 스키마를 이용하여 model을 만들어준다.
 //모델의 이름은 "Video"
