@@ -1,7 +1,18 @@
 import routes from "../routes";
+import Video from "../models/Video";
 
-export const home = (req, res) => {
-    res.render("home", { pageTitle: "Home", videos });
+//db를 import 해주고 home에 async를 달아준다. async는 기다려주는 역할을 한다.
+//javascript가 db를 다 못보고 그냥 지나갈 수도 있기 때문이다.
+//javascript는 기본적으로 기다려주지 않는다.
+//async: "JS야 이 function의 ~~부분은 꼭 기다려!" await이 있는 부분까지 기다린다.
+export const home = async(req, res) => {
+    try {
+        const videos = await Video.find({}); //모든 비디오를 가져온다.
+        res.render("home", { pageTitle: "Home", videos });
+    } catch (error) {
+        console.log(error);
+        res.render("home", { pageTitle: "Home", videos: [] });
+    }
 };
 
 export const search = (req, res) => {
