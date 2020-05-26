@@ -2,6 +2,7 @@ import app from "./app"; // app.js에서 export default app했기 때문에 불�
 import "./db";
 import dotenv from "dotenv";
 dotenv.config();
+import "./models/Video";
 
 const PORT = process.env.PORT || 80;
 
