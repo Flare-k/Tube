@@ -13,6 +13,7 @@ const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug");
+app.use("/uploads", express.static("uploads"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); //json, html, text, urlencoded 할 거 없이 다 parser할 수 있도록 설정해줘야 한다.

@@ -8,7 +8,7 @@ import Video from "../models/Video";
 export const home = async(req, res) => {
     try {
         const videos = await Video.find({}); //모든 비디오를 가져온다.
-        res.render("home", { pageTitle: "Home", videos });
+        res.render("home", { pageTitle: "Home", videos }); //render DB에 저장된 video의 내용을 보여준다
     } catch (error) {
         console.log(error);
         res.render("home", { pageTitle: "Home", videos: [] });
@@ -44,8 +44,20 @@ export const postUpload = async(req, res) => {
     //id는 mongoDB가 랜덤하게 만들어준다.
 };
 
-export const videoDetail = (req, res) =>
-    res.render("videoDetail", { pageTitle: "Video Detail" });
+export const videoDetail = async(req, res) => {
+    //console.log(req.params); params에 id가 있다는걸 알게 됨
+    const {
+        params: { id },
+    } = req;
+    try {
+        const video = await Video.findById(id);
+        //console.log(video);
+        res.render("videoDetail", { pageTitle: "Video Detail", video });
+    } catch (error) {
+        //console.log(error);
+        res.redirect(routes.home);
+    }
+};
 export const editVideo = (req, res) =>
     res.render("editVideo", { pageTitle: "Edit Video" });
 export const deleteVideo = (req, res) =>
