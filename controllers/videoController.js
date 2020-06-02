@@ -51,14 +51,47 @@ export const videoDetail = async(req, res) => {
     } = req;
     try {
         const video = await Video.findById(id);
-        //console.log(video);
-        res.render("videoDetail", { pageTitle: "Video Detail", video });
+        res.render("videoDetail", { pageTitle: video.title, video });
     } catch (error) {
-        //console.log(error);
         res.redirect(routes.home);
     }
 };
-export const editVideo = (req, res) =>
-    res.render("editVideo", { pageTitle: "Edit Video" });
-export const deleteVideo = (req, res) =>
-    res.render("deleteVideo", { pageTitle: "Delete Video" });
+export const getEditVideo = async(req, res) => {
+    const {
+        params: { id },
+    } = req;
+    try {
+        const video = await Video.findById(id);
+        //video를 받아서 render로 통해 템플릿으로 던져준다,
+        res.render("editVideo", { pageTitle: `Edit ${video.title}`, video });
+        // rendering하는 순간 템플릿에선 video의 title과 description을 던져준다.
+    } catch (error) {
+        res.redirect(routes.home);
+    }
+};
+export const postEditVideo = async(req, res) => {
+    const {
+        params: { id },
+        body: { title, description },
+    } = req;
+    try {
+        //id를 찾아서 body를 얻어와야 한다. 비디오 수정에서 제목과 설명을 가져와야 하기 때문이다.
+        //mongoose엔 우리의 id가 없어서 _id : id로 찾아줘야 한다.
+        await Video.findOneAndUpdate({ _id: id }, { title, description }); //title:title == title
+        //이렇게 하면 default로 얻어온 제목 및 내용을 수정하여 form을 전송하면 해당 내용으로 업데이트 된다.
+        res.redirect(routes.videoDetail(id));
+    } catch (error) {
+        res.redirect(routes.home);
+    }
+};
+
+export const deleteVideo = async(req, res) => {
+    const {
+        params: { id },
+    } = req;
+    try {
+        await Video.findOneAndRemove({ _id: id });
+    } catch (error) {}
+    //삭제를 실패하던 성공하던 home으로 redirect한다.
+    res.redirect(routes.home);
+};
