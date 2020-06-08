@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import routes from "../routes";
 import Video from "../models/Video";
 
@@ -15,10 +16,18 @@ export const home = async (req, res) => {
   }
 };
 
-export const search = (req, res) => {
+export const search = async (req, res) => {
   const {
     query: { term: searchingBy },
   } = req; // == const searchingBy = req.query.term;
+  let videos = [];
+  try {
+    videos = await Video.find({
+      title: { $regex: searchingBy, $options: "i" }, // i를 옵션으로 추가하면 insensitive.. 대소문자 구분 안함.
+    });
+  } catch (error) {
+    console.log(error);
+  }
   res.render("search", { pageTitle: "Search", searchingBy, videos });
 };
 
