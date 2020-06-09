@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev:server": "nodemon --exec babel-node init.js --delay 2",
-    "dev:assets": "WEBPACK_ENV=development webpack",
+    "dev:assets": "WEBPACK_ENV=development webpack -w",
     "build:assets": "WEBPACK_ENV=production webpack"
   },
   "repository": {
@@ -17,8 +17,10 @@
   "dependencies": {
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
+    "@babel/polyfill": "^7.10.1",
     "@babel/preset-env": "^7.9.6",
     "autoprefixer": "^9.8.0",
+    "babel-loader": "^8.1.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "css-loader": "^3.5.3",
