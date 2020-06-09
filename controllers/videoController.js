@@ -86,7 +86,7 @@ export const postEditVideo = async (req, res) => {
   try {
     // id를 찾아서 body를 얻어와야 한다. 비디오 수정에서 제목과 설명을 가져와야 하기 때문이다.
     // mongoose엔 우리의 id가 없어서 _id : id로 찾아줘야 한다.
-    await Video.findOneAndUpdate({ _id: id }, { title, description }); //title:title == title
+    await Video.findOneAndUpdate({ _id: id }, { title, description }); // title:title == title
     // 이렇게 하면 default로 얻어온 제목 및 내용을 수정하여 form을 전송하면 해당 내용으로 업데이트 된다.
     res.redirect(routes.videoDetail(id));
   } catch (error) {
