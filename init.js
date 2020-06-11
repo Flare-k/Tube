@@ -3,6 +3,7 @@ import app from "./app"; // app.js에서 export default app했기 때문에 불�
 import "./db";
 import "./models/Video";
 import "./models/Comment";
+import "./models/User";
 
 dotenv.config();
 
