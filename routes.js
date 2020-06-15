@@ -58,5 +58,5 @@ const routes = {
     }
   },
 };
-
+// template에서 직접 접근이 필요한 경우 함수로 바꿔준다.
 export default routes;

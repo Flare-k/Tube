@@ -1,0 +1,5 @@
+express session을 설치한다. npm install express-session
+
+postJoin은 이메일과 비밀번호를 전달하고 next()가 호출되어 postLogin으로 간다.
+
+connect mongo를 통해 저장소를 생성한다.
