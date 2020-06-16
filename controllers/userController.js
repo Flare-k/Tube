@@ -78,6 +78,20 @@ export const postGithubLogin = (req, res) => {
   res.redirect(routes.home);
 };
 
+export const facebookLogin = passport.authenticate("facebook");
+
+export const facebookLoginCallback = (
+  accessToken,
+  refreshToken,
+  profile,
+  cb
+) => {
+  console.log(accessToken, refreshToken, profile, cb);
+};
+
+export const postFacebookLogin = (req, res) => {
+  res.redirect(routes.home);
+};
 // 로그아웃을 클릭하면 LogOut페이지로 가는 것 대신에, 로그아웃을 처리한 후
 // home 페이지로 Redirect로 표현할 것이다.
 // 즉, 초반에 만들어둔 logout.pug는 삭제해도 좋다.
@@ -91,8 +105,18 @@ export const getMe = (req, res) =>
   res.render("userDetail", { pageTitle: "User Detail", user: req.user });
 
 // export const users = (req, res) => res.render("users", { pageTitle: "Users" });
-export const userDetail = (req, res) =>
-  res.render("userDetail", { pageTitle: "User Detail" });
+
+export const userDetail = async (req, res) => {
+  const {
+    params: { id },
+  } = req; // req로 부터 params의 id가져오기
+  try {
+    const user = await User.findById(id);
+    res.render("userDetail", { pageTitle: "User Detail", user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 export const editProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "Edit Profile" });
 export const changePassword = (req, res) =>

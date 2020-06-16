@@ -23,6 +23,10 @@ const DELETE_VIDEO = "/:id/delete";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
+// Facebook
+const FB = "/auth/facebook";
+const FB_CALLBACK = "/auth/facebook/callback";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -65,6 +69,8 @@ const routes = {
   gitHub: GITHUB,
   githubCallback: GITHUB_CALLBACK,
   me: ME,
+  facebook: FB,
+  facebookCallback: FB_CALLBACK,
 };
 // template에서 직접 접근이 필요한 경우 함수로 바꿔준다.
 export default routes;
