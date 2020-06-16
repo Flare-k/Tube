@@ -118,3 +118,5 @@ dist
 package-lock.json
 uploads
 static
+text
+*.txt

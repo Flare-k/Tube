@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -12,9 +13,9 @@ import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-
 import "./passport";
 
+dotenv.config();
 const app = express();
 
 const CokieStore = MongoStore(session);
@@ -36,6 +37,7 @@ app.use(
     store: new CokieStore({ mongooseConnection: mongoose.connection }),
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 

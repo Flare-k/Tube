@@ -3,3 +3,25 @@ express session을 설치한다. npm install express-session
 postJoin은 이메일과 비밀번호를 전달하고 next()가 호출되어 postLogin으로 간다.
 
 connect mongo를 통해 저장소를 생성한다.
+
+- 인증에 대한 정리 -
+유저네임과 비밀번호를 이용한 방식(local 방식)은 비교적 간단하다. 유저네임과 비밀번호를 post 방식으로 전달하고
+설치해준 플러그인인 Mongoose가 자동으로 체크를 해준다. 만약 비밀번호가 맞으면 passport에게 맞다고 알려주고
+passport는 쿠키를 생성한다.
+
+소셜로그인의 경우에는 조금 다르다
+먼저 사용자는 깃허브 사이트로 이동하게 되고 거기에서 권한 승인을 한다.
+그 이후에 깃헙 사이트는 우리에게 해당 사용자의 정보를 보내주는데 /auth/github/callback이라는 URL로 오게 된다
+그렇게 되면 passport가 함수를 호출하는데 githubLoginCallback이라는 우리가 만들어준 함수이다.
+passport가 이함수를 실행하는 것이다.
+이 함수는 모든 사용자 프로필 정보를 받고 이 정보로 필요한 것을 할 수 있다.
+githubLoginCallback 함수의 한가지 조건은 callback(cb) 함수를 리턴해야하는 것이다.
+cb 함수를 실행시켜서 에러가 있는지 유저가 있는지 알려줘야 한다.
+
+에러가 존재하면 passport는 에러가 있구나 유저는 없구나하고 끝내고 
+유저가 존재하면 passport는 이 유저를 가져와 쿠키를 만들고 저장한다.
+이렇게 저장된 쿠키를 브라우저로 보내게 된다.
+
+globalRouter에서 깃허브로 갈때 githubLogin이 실행되는데 깃허브로 보내주는 역할을 한다.
+그리고 githubCallback(URL)로 돌아왔을 때 passport는 사용자가 알려준 함수인 githubLoginCallback을 실행시킨다.
+만약 user를 찾으면 passport는 통과시키며 postGithubLogin을 실행하고 홈으로 리다이렉트한다.
