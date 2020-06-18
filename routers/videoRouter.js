@@ -4,9 +4,9 @@ import {
   getUpload,
   postUpload,
   videoDetail,
+  deleteVideo,
   getEditVideo,
   postEditVideo,
-  deleteVideo,
 } from "../controllers/videoController";
 import { uploadVideo, onlyPrivate } from "../middlewares";
 // export const videoRouter = express.Router();  이렇게하면 이 변수만 export하게 된다.

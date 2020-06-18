@@ -7,6 +7,18 @@ const UserSchema = new mongoose.Schema({
   avatarUrl: String,
   facebookId: Number,
   githubId: Number,
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId, // 그 다음 어느 model에서 온 id인지 알려줘야 한다.
+      ref: "Comment",
+    },
+  ],
+  videos: [
+    {
+      type: mongoose.Schema.Types.ObjectId, // 그 다음 어느 model에서 온 id인지 알려줘야 한다.
+      ref: "Video",
+    },
+  ],
 });
 // 이 상태에서 새로운 스키마를 추가한다.
 // passportLocalMongoose는 configuration object가 필요하다.

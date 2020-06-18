@@ -27,6 +27,10 @@ const VideoSchema = new mongoose.Schema({
       ref: "Comment",
     },
   ],
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 // 이제 이 스키마를 이용하여 model을 만들어준다.
 // 모델의 이름은 "Video"

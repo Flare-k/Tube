@@ -2,6 +2,7 @@ import multer from "multer";
 import routes from "./routes";
 
 const multerVideo = multer({ dest: "uploads/videos/" });
+const multerAvatar = multer({ dest: "uploads/avatars/" });
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = "my Youtube";
@@ -26,3 +27,4 @@ export const onlyPrivate = (req, res, next) => {
 };
 export const uploadVideo = multerVideo.single("videoFile");
 // single에 들어간 videoFile은 upload.pug의 file 부분 input name
+export const uploadAvatar = multerAvatar.single("avatar");

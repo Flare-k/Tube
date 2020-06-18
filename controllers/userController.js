@@ -120,7 +120,7 @@ export const logout = (req, res) => {
 
 export const getMe = (req, res) =>
   res.render("userDetail", { pageTitle: "User Detail", user: req.user });
-
+// req.user -> 로그인된 유저
 // export const users = (req, res) => res.render("users", { pageTitle: "Users" });
 
 export const userDetail = async (req, res) => {
@@ -128,13 +128,50 @@ export const userDetail = async (req, res) => {
     params: { id },
   } = req; // req로 부터 params의 id가져오기
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("videos");
     res.render("userDetail", { pageTitle: "User Detail", user });
   } catch (error) {
     res.redirect(routes.home);
   }
 };
-export const editProfile = (req, res) =>
+export const getEditProfile = (req, res) =>
   res.render("editProfile", { pageTitle: "Edit Profile" });
-export const changePassword = (req, res) =>
+
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email },
+    file,
+  } = req;
+  try {
+    // 로그인된 user의 id 가져오면 됨
+    await User.findByIdAndUpdate(req.user.id, {
+      name,
+      email,
+      avatarUrl: file ? file.path : req.user.avatarUrl,
+    });
+    res.redirect(routes.me);
+  } catch (error) {
+    res.redirect(`/users${routes.editProfile}`);
+  }
+};
+
+export const getChangePassword = (req, res) =>
   res.render("changePassword", { pageTitle: "Change Password" });
+
+export const postChangePassword = async (req, res) => {
+  const {
+    body: { oldPassword, newPassword, newPassword1 },
+  } = req;
+  try {
+    if (newPassword !== newPassword1) {
+      res.status(400);
+      res.redirect(`/users${routes.changePassword}`);
+      return;
+    }
+    await req.user.changePassword(oldPassword, newPassword);
+    res.redirect(routes.me);
+  } catch (error) {
+    res.status(400);
+    res.redirect(`/users${routes.changePassword}`);
+  }
+};
