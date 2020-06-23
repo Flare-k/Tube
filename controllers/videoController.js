@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import routes from "../routes";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 // db를 import 해주고 home에 async를 달아준다. async는 기다려주는 역할을 한다.
 // javascript가 db를 다 못보고 그냥 지나갈 수도 있기 때문이다.
@@ -62,7 +63,9 @@ export const videoDetail = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const video = await Video.findById(id).populate("creator");
+    const video = await Video.findById(id)
+      .populate("creator")
+      .populate("comments");
     res.render("videoDetail", { pageTitle: video.title, video });
   } catch (error) {
     res.redirect(routes.home);
@@ -130,6 +133,28 @@ export const postRegisterView = async (req, res) => {
     video.views += 1;
     video.save();
     res.status(200);
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+// 댓글 부분
+export const postAddComment = async (req, res) => {
+  const {
+    params: { id }, // URL에서 가져옴
+    body: { comment },
+    user,
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    const newComment = await Comment.create({
+      text: comment,
+      creator: user.id,
+    });
+    video.comments.push(newComment.id);
+    video.save();
   } catch (error) {
     res.status(400);
   } finally {

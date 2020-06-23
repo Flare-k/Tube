@@ -31,6 +31,9 @@ const FB_CALLBACK = "/auth/facebook/callback";
 const API = "/api";
 const REGISTER_VIEW = "/:id/view";
 
+// Comment
+const ADD_COMMENT = "/:id/comment";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -78,6 +81,7 @@ const routes = {
 
   api: API,
   registerView: REGISTER_VIEW,
+  addComment: ADD_COMMENT,
 };
 // template에서 직접 접근이 필요한 경우 함수로 바꿔준다.
 export default routes;
