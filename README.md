@@ -3,6 +3,7 @@
 ### 경희대학교 컴퓨터공학과 강연욱
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<img src="![스크린샷_2020-06-24_오전_4.44.08](/uploads/5f573472dd7feab0d3f729adf8d04aa3/스크린샷_2020-06-24_오전_4.44.08.png)" width="90%"></img>
 
 ## KhuTube
 
