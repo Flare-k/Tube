@@ -7,6 +7,12 @@ const currentTime = document.getElementById("currentTime");
 const totalTime = document.getElementById("totalTime");
 const volumeRange = document.getElementById("jsVolume");
 
+const registerView = () => {
+  fetch(`/api/${window.location.href.split("/videos/")[1]}/view`, {
+    method: "POST",
+  });
+};
+
 // video element MDN
 // using MDN (Mozila Developer Networks)
 function handlePlayClick() {
@@ -90,6 +96,7 @@ function setTotalTime() {
 
 // 영상이 끝나면 pause하고 다시 앞으로 돌릴 수 있게 하고 싶다...
 function handleEnded() {
+  registerView();
   videoPlayer.currentTime = 0;
   playBtn.innerHTML = '<i class="fas fa-play"></i>';
 }

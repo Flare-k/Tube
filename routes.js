@@ -27,6 +27,10 @@ const GITHUB_CALLBACK = "/auth/github/callback";
 const FB = "/auth/facebook";
 const FB_CALLBACK = "/auth/facebook/callback";
 
+// API
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+
 const routes = {
   home: HOME,
   join: JOIN,
@@ -71,6 +75,9 @@ const routes = {
   me: ME,
   facebook: FB,
   facebookCallback: FB_CALLBACK,
+
+  api: API,
+  registerView: REGISTER_VIEW,
 };
 // template에서 직접 접근이 필요한 경우 함수로 바꿔준다.
 export default routes;

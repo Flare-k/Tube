@@ -119,3 +119,20 @@ export const deleteVideo = async (req, res) => {
   // 삭제를 실패하던 성공하던 home으로 redirect한다.
   res.redirect(routes.home);
 };
+
+// 조회수 부분
+export const postRegisterView = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    video.views += 1;
+    video.save();
+    res.status(200);
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
