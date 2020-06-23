@@ -6,7 +6,7 @@
 
 ## KhuTube
 
-Node.js를 사용하여 나만의 Youtube 만들어보기
+Node.js를 사용하여 나만의 Youtube 만들어보기  
 Create your own Youtube site using Node.js.
 
 ## Configuration
@@ -20,8 +20,8 @@ Create your own Youtube site using Node.js.
 
 ### Required File
 
-위 저장소를 클론한 후 /myYoutube 위치에 .env 파일을 추가해주세요. 내용은 다음과 같습니다.
-If you cloned this repo, please add the .env file in /myYoutube
+위 저장소를 클론한 후 /myYoutube 위치에 .env 파일을 추가해주세요. 내용은 다음과 같습니다.  
+If you cloned this repo, please add the .env file in /myYoutube  
 The .env file is ..
 
 ```sh
@@ -44,7 +44,7 @@ npm install
 
 ### Run program
 
-Backend를 수정하고 서버를 실행하여 확인하고 싶다면 터미널에 다음과 같이 입력해주세요.
+Backend를 수정하고 서버를 실행하여 확인하고 싶다면 터미널에 다음과 같이 입력해주세요.  
 If you modify your backend project and want to run the server for checking..
 
 ```sh
@@ -58,12 +58,12 @@ If you modify your frontend project and want to check the change on server..
 npm run dev:assets
 ```
 
-가급적이면 터미널을 분할하여 두 내용을 다 실행시킨 후에 작업하시는 것도 좋습니다.
+가급적이면 터미널을 분할하여 두 내용을 다 실행시킨 후에 작업하시는 것도 좋습니다.  
 I just recommend run both at the same time.
 
 ## Reference links
 
-[Passport JS](http://www.passportjs.org/)
+[Passport JS](http://www.passportjs.org/)  
 [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web)
 
 ## Pages:
