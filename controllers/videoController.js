@@ -40,11 +40,11 @@ export const postUpload = async (req, res) => {
   // 이는 pug와 db.js를 확인해야하는 듯 하다.
   const {
     body: { title, description },
-    file: { path },
+    file: { location }, // path로 할때는 로컬의 경로. S3는 location
   } = req; // file에 path라는 요소가 있다.
 
   const newVideo = await Video.create({
-    fileUrl: path,
+    fileUrl: location,
     title,
     description,
     creator: req.user.id,
