@@ -8,7 +8,8 @@ const totalTime = document.getElementById("totalTime");
 const volumeRange = document.getElementById("jsVolume");
 
 const registerView = () => {
-  fetch(`/api/${window.location.href.split("/videos/")[1]}/view`, {
+  const id = window.location.href.split("/videos/")[1];
+  fetch(`/api/${id}/view`, {
     method: "POST",
   });
 };
