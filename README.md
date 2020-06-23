@@ -51,7 +51,7 @@ If you modify your backend project and want to run the server for checking..
 npm run dev:server
 ```
 
-Frontend를 수정하고 서버상에서 어떻게 실행되는지 확인하고 싶다면 터미널에 다음과 같이 입력해주세요.
+Frontend를 수정하고 서버상에서 어떻게 실행되는지 확인하고 싶다면 터미널에 다음과 같이 입력해주세요.  
 If you modify your frontend project and want to check the change on server..
 
 ```sh
