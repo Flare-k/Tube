@@ -8,6 +8,12 @@
 <img src="https://user-images.githubusercontent.com/28841337/85452529-f0c00900-b5d5-11ea-90c4-b6d0d176e8cd.png" width="10%" ></img>
 </p>
 
+📺 [KhuTube](http://www.khutube.tk:4000/)
+
+위 주소는 실제 EC2 서버에 배포한 주소입니다. (불필요한 업로드는 삼가 주기시 바랍니다.)
+
+This is the address that deployed to the actual EC2 server. (Please refrain from uploading unnecessary files.)
+
 ## KhuTube
 
 Node.js를 사용하여 나만의 Youtube 만들어보기  
@@ -17,10 +23,15 @@ Create your own Youtube site using Node.js.
 
 1. Frontend: Vanilla.js(Pug Template)
 2. Backend : Node.js
-3. Database: mongoDB
-4. A W S : EC2
+3. Database: mongoDB Atlas
+4. A W S : EC2(Ubuntu), S3
 
 ## Quickstart
+
+### Prerequisite
+
+- node v12.x
+- npm 6.x
 
 ### Required File
 
@@ -68,7 +79,14 @@ I just recommend run both at the same time.
 ## Reference links
 
 [Passport JS](http://www.passportjs.org/)  
-[Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web)
+[Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web)  
+[Github Developer](https://developer.github.com/program/)  
+[Facebook Developer](https://developers.facebook.com/)  
+[Webpack-cli](https://www.npmjs.com/package/webpack-cli)  
+[Multer-S3](https://www.npmjs.com/package/multer-s3)  
+[Mongoose](https://mongoosejs.com/)  
+[Axios](https://www.npmjs.com/package/axios)  
+[AWS SDK](https://aws.amazon.com/ko/sdk-for-node-js/)
 
 ## Pages:
 
@@ -85,6 +103,9 @@ I just recommend run both at the same time.
 
 ## License
 
+[MIT License](http://khuhub.khu.ac.kr/2017110267/myYoutube/blob/master/LICENSE)
+
 ## Contact
 
-2017110267 강연욱 rokkyw@khu.ac.kr
+이용하시다가 궁금한 점이 있으시면 이쪽으로 연락 부탁드립니다.  
+강연욱 - rokkyw@khu.ac.kr
