@@ -10,7 +10,7 @@
 
 📺 [KhuTube](http://www.khutube.tk:4000/)
 
-위 주소는 실제 EC2 서버에 배포한 주소입니다. (불필요한 업로드는 삼가 주기시 바랍니다.)
+위 주소는 실제 EC2 서버에 배포한 주소입니다. (불필요한 업로드는 삼가 주시기 바랍니다.)
 
 This is the address that deployed to the actual EC2 server. (Please refrain from uploading unnecessary files.)
 
