@@ -14,7 +14,7 @@ import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-import aipRouter from "./routers/apiRouter";
+import apiRouter from "./routers/apiRouter";
 import "./passport";
 
 dotenv.config();
@@ -47,5 +47,5 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
-app.use(routes.api, aipRouter);
+app.use(routes.api, apiRouter);
 export default app; // 파일을 불러올때 app object를 준다는 의미.
