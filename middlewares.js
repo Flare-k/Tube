@@ -12,15 +12,17 @@ const s3 = new aws.S3({
   region: "ap-northeast-2",
 });
 
-// const multerVideo = multer({ dest: "uploads/videos/" });
+const multerVideo = multer({ dest: "uploads/videos/" });
+/*
 const multerVideo = multer({
   storage: multerS3({
     s3,
     acl: "public-read",
     bucket: "khutube/video",
   }),
-});
-// const multerAvatar = multer({ dest: "uploads/avatars/" });
+});*/
+const multerAvatar = multer({ dest: "uploads/avatars/" });
+/*
 const multerAvatar = multer({
   storage: multerS3({
     s3,
@@ -28,11 +30,12 @@ const multerAvatar = multer({
     bucket: "khutube/avatars",
   }),
 });
-
+*/
 export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = "my Youtube";
   res.locals.routes = routes;
   res.locals.loggedUser = req.user || null;
+  // console.log(req);
   next();
 };
 

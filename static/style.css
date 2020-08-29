@@ -501,6 +501,91 @@ input[type="submit"] {
     width: 100%;
     margin-bottom: 20px; }
 
+@-webkit-keyframes flashAnimation {
+  0% {
+    -webkit-transform: translateY(-70px);
+            transform: translateY(-70px); }
+  5% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px); }
+  95% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px); }
+  100% {
+    -webkit-transform: translateY(-70px);
+            transform: translateY(-70px); } }
+
+@-moz-keyframes flashAnimation {
+  0% {
+    -moz-transform: translateY(-70px);
+         transform: translateY(-70px); }
+  5% {
+    -moz-transform: translateY(0px);
+         transform: translateY(0px); }
+  95% {
+    -moz-transform: translateY(0px);
+         transform: translateY(0px); }
+  100% {
+    -moz-transform: translateY(-70px);
+         transform: translateY(-70px); } }
+
+@-o-keyframes flashAnimation {
+  0% {
+    -o-transform: translateY(-70px);
+       transform: translateY(-70px); }
+  5% {
+    -o-transform: translateY(0px);
+       transform: translateY(0px); }
+  95% {
+    -o-transform: translateY(0px);
+       transform: translateY(0px); }
+  100% {
+    -o-transform: translateY(-70px);
+       transform: translateY(-70px); } }
+
+@keyframes flashAnimation {
+  0% {
+    -webkit-transform: translateY(-70px);
+       -moz-transform: translateY(-70px);
+         -o-transform: translateY(-70px);
+            transform: translateY(-70px); }
+  5% {
+    -webkit-transform: translateY(0px);
+       -moz-transform: translateY(0px);
+         -o-transform: translateY(0px);
+            transform: translateY(0px); }
+  95% {
+    -webkit-transform: translateY(0px);
+       -moz-transform: translateY(0px);
+         -o-transform: translateY(0px);
+            transform: translateY(0px); }
+  100% {
+    -webkit-transform: translateY(-70px);
+       -moz-transform: translateY(-70px);
+         -o-transform: translateY(-70px);
+            transform: translateY(-70px); } }
+
+.flash-message__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  -webkit-animation: flashAnimation 5s ease-in-out forwards;
+     -moz-animation: flashAnimation 5s ease-in-out forwards;
+       -o-animation: flashAnimation 5s ease-in-out forwards;
+          animation: flashAnimation 5s ease-in-out forwards; }
+  .flash-message__container.error {
+    background-color: #e74c3c; }
+  .flash-message__container.success {
+    background-color: #2ecc71; }
+  .flash-message__container.info {
+    background-color: #f1c40f; }
+  .flash-message__container .flash-message__text {
+    color: white;
+    font-size: 14px; }
+
 .home-videos {
   display: grid;
   grid-template-columns: repeat(6, minmax(150px, 1fr));

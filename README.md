@@ -11,6 +11,7 @@
 📺 [KhuTube](http://www.khutube.tk:4000/)
 
 위 주소는 실제 EC2 서버에 배포한 주소입니다. (불필요한 업로드는 삼가 주시기 바랍니다.)
+현재는 사용하지 않는 주소입니다.(2020.08.29 기준)
 
 This is the address that deployed to the actual EC2 server. (Please refrain from uploading unnecessary files.)
 
@@ -108,4 +109,4 @@ I just recommend run both at the same time.
 ## Contact
 
 이용하시다가 궁금한 점이 있으시면 이쪽으로 연락 부탁드립니다.  
-강연욱 - rokkyw@khu.ac.kr
+강연욱 - rokkyw@khu.ac.kr / rokkyw@naver.com
