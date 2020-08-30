@@ -131,6 +131,7 @@ export const logout = (req, res) => {
 export const getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).populate("videos");
+    console.log(user);
     res.render("userDetail", { pageTitle: "User Detail", user });
   } catch (error) {
     res.redirect(routes.home);
@@ -161,10 +162,11 @@ export const postEditProfile = async (req, res) => {
   } = req;
   try {
     // 로그인된 user의 id 가져오면 됨
+    console.log(file);
     await User.findByIdAndUpdate(req.user.id, {
       name,
       email,
-      avatarUrl: file ? file.location : req.user.avatarUrl, // S3 적용때메 file.path -> file.location 변경(06/24)
+      avatarUrl: file ? file.path : req.user.avatarUrl, // S3 적용때메 file.path -> file.location 변경(06/24)
     });
     req.flash("success", "Profile updated");
     res.redirect(routes.me);

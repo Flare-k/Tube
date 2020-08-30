@@ -142,7 +142,7 @@ input {
 
 .u-avatar {
   height: 80px;
-  background-color: #ea232c;
+  background-color: transparent;
   -webkit-border-radius: 50%;
      -moz-border-radius: 50%;
           border-radius: 50%; }
