@@ -41,13 +41,36 @@
     .add__comment {
       margin-top: 25px;
       width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       input {
         width: 100%;
+        margin-right: 10px;
+      }
+      i {
+        font-size: 20px;
+        cursor: pointer;
       }
     }
     .video__comments-list {
-      margin-top: 50px;
+      margin-top: 30px;
       li {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        i {
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+      .video__comment-box {
+        text-align: left;
+        margin-right: 10px;
+        width: 300px;
         background-color: #3498db;
         color: white;
         padding: 15px;
